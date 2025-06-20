@@ -1,0 +1,360 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #000;
+    color: #fff;
+    overflow: hidden;
+    cursor: none;
+}
+
+.screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.screen.active {
+    display: flex;
+}
+
+/* Error Screen */
+#error-screen {
+    background: linear-gradient(45deg, #1a1a2e, #16213e);
+}
+
+.error-container {
+    text-align: center;
+    max-width: 600px;
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    border: 2px solid #ff0000;
+    box-shadow: 0 0 50px rgba(255, 0, 0, 0.5);
+}
+
+.error-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.error-container h1 {
+    color: #ff4444;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(255, 68, 68, 0.8);
+}
+
+.error-container p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #ccc;
+}
+
+.error-code {
+    font-family: 'Courier New', monospace;
+    background: #222;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    color: #00ff00;
+}
+
+.progress-container {
+    margin-bottom: 30px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ff4444, #ff6666);
+    width: 0%;
+    transition: width 0.3s ease;
+    animation: progress-glow 2s infinite;
+}
+
+@keyframes progress-glow {
+    0%, 100% { box-shadow: 0 0 10px rgba(255, 68, 68, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(255, 68, 68, 1); }
+}
+
+.progress-text {
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+.restart-button {
+    background: #ff4444;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.restart-button:hover:not(:disabled) {
+    background: #ff6666;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 68, 68, 0.4);
+}
+
+.restart-button:disabled {
+    background: #666;
+    cursor: not-allowed;
+}
+
+/* Loading Screen */
+#loading-screen {
+    background: #000;
+    flex-direction: column;
+}
+
+.loading-container {
+    text-align: center;
+}
+
+.loading-spinner {
+    width: 80px;
+    height: 80px;
+    border: 4px solid #333;
+    border-top: 4px solid #00ff00;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 30px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-container h2 {
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.loading-bar {
+    width: 400px;
+    height: 10px;
+    background: #333;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.loading-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00ff00, #44ff44);
+    width: 0%;
+    transition: width 0.5s ease;
+}
+
+/* Desktop Screen */
+#desktop-screen {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.desktop {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.taskbar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.start-button {
+    background: #0078d4;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.start-button:hover {
+    background: #106ebe;
+}
+
+.time {
+    font-size: 0.9rem;
+}
+
+.desktop-icons {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.icon {
+    width: 80px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+}
+
+.icon-image {
+    font-size: 3rem;
+    margin-bottom: 5px;
+}
+
+.icon-label {
+    font-size: 0.8rem;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+/* Popup Styles */
+.popup {
+    position: fixed;
+    background: #fff;
+    color: #000;
+    border: 2px solid #000;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    min-width: 300px;
+    animation: popup-appear 0.3s ease;
+}
+
+@keyframes popup-appear {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.popup-header {
+    background: #0078d4;
+    color: #fff;
+    padding: 5px 10px;
+    margin: -20px -20px 15px -20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.popup-close {
+    background: #ff4444;
+    color: #fff;
+    border: none;
+    padding: 2px 8px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.popup-content {
+    margin-bottom: 15px;
+}
+
+.popup-buttons {
+    text-align: right;
+}
+
+.popup-button {
+    background: #ddd;
+    border: 1px solid #999;
+    padding: 5px 15px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.popup-button:hover {
+    background: #ccc;
+}
+
+/* Cursor Trail */
+.cursor-dot {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: #ff4444;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    animation: cursor-fade 1s ease-out forwards;
+}
+
+@keyframes cursor-fade {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0.5); }
+}
+
+/* Glitch Effect */
+.glitch {
+    animation: glitch-anim 0.3s infinite;
+}
+
+@keyframes glitch-anim {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .error-container {
+        max-width: 90%;
+        padding: 20px;
+    }
+    
+    .error-container h1 {
+        font-size: 1.8rem;
+    }
+    
+    .loading-bar {
+        width: 300px;
+    }
+    
+    .desktop-icons {
+        top: 20px;
+        left: 20px;
+    }
+}
+

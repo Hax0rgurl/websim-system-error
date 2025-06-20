@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Error</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="error-screen" class="screen active">
+        <div class="error-container">
+            <div class="error-icon">⚠️</div>
+            <h1>CRITICAL SYSTEM ERROR</h1>
+            <p>Your computer has encountered a critical error and needs to restart.</p>
+            <div class="error-code">Error Code: 0x00000PRANK</div>
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <div class="progress-text">Collecting error info... <span id="progress-percent">0%</span></div>
+            </div>
+            <button id="restart-btn" class="restart-button" disabled>Restart Now</button>
+        </div>
+    </div>
+
+    <div id="loading-screen" class="screen">
+        <div class="loading-container">
+            <div class="loading-spinner"></div>
+            <h2>Restarting...</h2>
+            <div class="loading-bar">
+                <div class="loading-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="desktop-screen" class="screen">
+        <div class="desktop">
+            <div class="taskbar">
+                <div class="start-button">Start</div>
+                <div class="time" id="current-time"></div>
+            </div>
+            <div class="desktop-icons">
+                <div class="icon" id="virus-icon">
+                    <div class="icon-image">🦠</div>
+                    <div class="icon-label">Totally_Safe_File.exe</div>
+                </div>
+                <div class="icon" id="crash-icon">
+                    <div class="icon-image">💥</div>
+                    <div class="icon-label">System_Crash.bat</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup-container"></div>
+    <div id="cursor-trail"></div>
+
+    <script src="script.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4c6229722a6346bc8eb5cb0e5eae5d41","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
+
